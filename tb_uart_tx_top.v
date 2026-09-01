@@ -2,15 +2,15 @@
 
 module tb_uart_tx;
 
-    reg CLK;
-    reg RST;
-    reg [7:0] P_INPUT;
-    reg V_INPUT;
-    reg P_EN;
-    reg P_BIT;
+    logic CLK;
+    logic RST;
+    logic [7:0] P_INPUT;
+    logic V_INPUT;
+    logic P_EN;
+    logic P_BIT;
 
-    wire TX_OUTPUT;
-    wire BUSY;
+    logic TX_OUTPUT;
+    logic  BUSY;
 
     uart_tx uut (
         .CLK(CLK),
