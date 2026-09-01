@@ -1,17 +1,17 @@
 module Serializer (
-    input wire clk,
-    input wire rst,
-    input wire load,
-    input wire shift,
-    input wire [7:0] p_input,
-    output reg serial_bit,
-    output reg done
+    input logic clk,
+    input logic rst,
+    input logic load,
+    input logic shift,
+    input logic [7:0] p_input,
+    output logic serial_bit,
+    output logic done
 );
 
-    reg [7:0] shift_reg;
-    reg [2:0] bit_counter;
+    logic [7:0] shift_reg;
+    logic [2:0] bit_counter;
 
-    always @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             shift_reg   <= 8'b0;
             serial_bit  <= 1'b0;
