@@ -19,13 +19,12 @@ module main_controller #(
     output logic [1:0] MUX_SEL,
     output logic     BUSY
 );
-    typedef enum logic [2:0];
-    parameter IDLE        ;
-    parameter LOAD_DATA   ;
-    parameter DATA_SEND   ;
-    parameter PARITY_CALC ;
-    parameter PARITY_SEND ;
-    parameter STOP_SEND   ;
+    parameter IDLE        = 3'b000;
+    parameter LOAD_DATA   = 3'b001;
+    parameter DATA_SEND   = 3'b010;
+    parameter PARITY_CALC = 3'b011;
+    parameter PARITY_SEND = 3'b100;
+    parameter STOP_SEND   = 3'b101;
 
     logic [2:0] STATE;
     logic [2:0] NEXT_STATE;
