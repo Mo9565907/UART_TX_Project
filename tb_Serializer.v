@@ -1,12 +1,12 @@
 module tb_Serializer;
 
-    reg clk;
-    reg rst;
-    reg load;
-    reg shift;
-    reg [7:0] p_input;
-    wire serial_bit;
-    wire done;
+    logic clk;
+    logic rst;
+    logic  load;
+    logic shift;
+    logic  [7:0] p_input;
+    logic serial_bit;
+    logic done;
 
     Serializer uut (
         .clk(clk),
@@ -18,7 +18,7 @@ module tb_Serializer;
         .done(done)
     );
 
-    always #5 clk = ~clk;
+    always_ff #5 clk = ~clk;
 
     initial begin
         clk = 0;
