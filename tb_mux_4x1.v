@@ -1,11 +1,11 @@
 module tb_mux_4x1;
 
-    reg [1:0] MUX_SEL;
-    reg SERIAL_BIT;
-    reg PARITY_BIT;
-    reg STOP_BIT;
-    reg IDLE_BIT;
-    wire TX_OUTPUT;
+    logic [1:0] MUX_SEL;
+    logic SERIAL_BIT;
+    logic PARITY_BIT;
+    logic STOP_BIT;
+    logic IDLE_BIT;
+    logic TX_OUTPUT;
 
     mux_4x1 uut (
         .MUX_SEL(MUX_SEL),
