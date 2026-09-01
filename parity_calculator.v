@@ -1,17 +1,17 @@
 module parity_calculator (
-    input wire CLK,
-    input wire RST,
-    input wire [7:0] P_INPUT,
-    input wire P_BIT,
-    input wire P_EN,
-    output reg PARITY_BIT,
-    output reg PARTY_DONE
+    input logic CLK,
+    input logic RST,
+    input logic [7:0] P_INPUT,
+    input logic P_BIT,
+    input logic P_EN,
+    output logic PARITY_BIT,
+    output logic PARTY_DONE
 );
 
-    wire parity_result;
+    logic parity_result;
     assign parity_result = (P_BIT == 1'b0) ? ^P_INPUT : ~(^P_INPUT);
 
-    always @(posedge CLK or posedge RST) begin
+    always_ff @(posedge CLK or posedge RST) begin
         if (RST) begin
             PARITY_BIT <= 1'b0;
             PARTY_DONE <= 1'b0;
