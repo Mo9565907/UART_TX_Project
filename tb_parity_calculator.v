@@ -1,12 +1,12 @@
 module tb_parity_calculator;
 
-    reg CLK;
-    reg RST;
-    reg [7:0] P_INPUT;
-    reg P_BIT;
-    reg P_EN;
-    wire PARITY_BIT;
-    wire PARTY_DONE;
+    logic CLK;
+    logic RST;
+    logic [7:0] P_INPUT;
+    logic P_BIT;
+    logic P_EN;
+    logic PARITY_BIT;
+    logic PARTY_DONE;
 
     parity_calculator uut (
         .CLK(CLK),
@@ -18,7 +18,7 @@ module tb_parity_calculator;
         .PARTY_DONE(PARTY_DONE)
     );
 
-    always #5 CLK = ~CLK;
+    always_ff #5 CLK = ~CLK;
 
     initial begin
         CLK = 0;
