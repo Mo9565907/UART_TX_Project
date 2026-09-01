@@ -11,13 +11,13 @@ module main_controller #(
     input        SHIFT_DONE,
     input        PARITY_DONE,
 
-    output reg       LOAD,
-    output reg       SHIFT_EN,
-    output reg [3:0] BIT_CNT,
-    output reg       PARITY_CALC_EN,
-    output reg       PARITY_SEL,
-    output reg [1:0] MUX_SEL,
-    output reg       BUSY
+    output logic      LOAD,
+    output logic      SHIFT_EN,
+    output logic [3:0] BIT_CNT,
+    output logic      PARITY_CALC_EN,
+    output logic     PARITY_SEL,
+    output logic [1:0] MUX_SEL,
+    output logic     BUSY
 );
 
     parameter IDLE        = 3'b000;
@@ -27,17 +27,17 @@ module main_controller #(
     parameter PARITY_SEND = 3'b100;
     parameter STOP_SEND   = 3'b101;
 
-    reg [2:0] STATE;
-    reg [2:0] NEXT_STATE;
+    logic [2:0] STATE;
+    logic [2:0] NEXT_STATE;
 
-    always @(posedge CLK or negedge RST) begin
+    always_ff @(posedge CLK or negedge RST) begin
         if (!RST)
             STATE <= IDLE;
         else
             STATE <= NEXT_STATE;
     end
 
-    always @(*) begin
+    always_comb @(*) begin
         NEXT_STATE = STATE;
 
         case (STATE)
@@ -80,7 +80,7 @@ module main_controller #(
         endcase
     end
 
-    always @(*) begin
+    always_comb @(*) begin
         LOAD           = 1'b0;
         SHIFT_EN       = 1'b0;
         BIT_CNT        = 4'd0;
