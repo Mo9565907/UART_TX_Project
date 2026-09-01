@@ -1,29 +1,29 @@
 module uart_tx (
-    input wire CLK,
-    input wire RST,
-    input wire [7:0] P_INPUT,
-    input wire V_INPUT,
-    input wire P_EN,
-    input wire P_BIT,
-    output wire TX_OUTPUT,
-    output wire BUSY
+    input logic CLK,
+    input logic RST,
+    input logic [7:0] P_INPUT,
+    input logic V_INPUT,
+    input logic P_EN,
+    input logic P_BIT,
+    output logic TX_OUTPUT,
+    output logic BUSY
 );
 
-    wire LOAD;
-    wire SHIFT_EN;
-    wire [3:0] BIT_CNT;
-    wire PARITY_CALC_EN;
-    wire PARITY_SEL;
-    wire [1:0] MUX_SEL;
+    logic LOAD;
+    logic SHIFT_EN;
+    logic [3:0] BIT_CNT;
+    logic PARITY_CALC_EN;
+    logic PARITY_SEL;
+    logic [1:0] MUX_SEL;
 
-    wire SERIAL_BIT;
-    wire SHIFT_DONE;
+    logic  SERIAL_BIT;
+    logic SHIFT_DONE;
 
-    wire PARITY_BIT;
-    wire PARTY_DONE;
+    logic PARITY_BIT;
+    logic PARTY_DONE;
 
-    wire STOP_BIT;
-    wire IDLE_BIT;
+    logic  STOP_BIT;
+    logic IDLE_BIT;
 
     assign STOP_BIT = 1'b1;
     assign IDLE_BIT = 1'b1;
