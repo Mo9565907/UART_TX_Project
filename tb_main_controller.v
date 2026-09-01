@@ -2,23 +2,23 @@ module tb_main_controller;
 
     parameter DATA_WIDTH = 8;
 
-    reg CLK;
-    reg RST;
-    reg [DATA_WIDTH-1:0] P_INPUT;
-    reg V_INPUT;
-    reg P_EN;
-    reg P_BIT;
+    logic CLK;
+    logic  RST;
+    logic [DATA_WIDTH-1:0] P_INPUT;
+    logic V_INPUT;
+    logic  P_EN;
+    logic P_BIT;
 
-    reg SHIFT_DONE;
-    reg PARITY_DONE;
+    logic SHIFT_DONE;
+    logic PARITY_DONE;
 
-    wire LOAD;
-    wire SHIFT_EN;
-    wire [3:0] BIT_CNT;
-    wire PARITY_CALC_EN;
-    wire PARITY_SEL;
-    wire [1:0] MUX_SEL;
-    wire BUSY;
+    logic LOAD;
+    logic SHIFT_EN;
+    logic [3:0] BIT_CNT;
+    logic PARITY_CALC_EN;
+    logic PARITY_SEL;
+    logic [1:0] MUX_SEL;
+    logic BUSY;
 
     main_controller #(
         .DATA_WIDTH(DATA_WIDTH)
@@ -40,7 +40,7 @@ module tb_main_controller;
         .BUSY(BUSY)
     );
 
-    always #5 CLK = ~CLK;
+    always_ff #5 CLK = ~CLK;
 
     initial begin
 
